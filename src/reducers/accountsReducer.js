@@ -16,9 +16,30 @@ const DEFAULT_STATE = [
 ];
 
 
-const accountsreducer = (state = DEFAULT_STATE , action) =>{
+const accountsReducer = (state = DEFAULT_STATE , action) =>{
     let updateState = [...state];                        //reducer must return a new array/object
     let accountId;
+    let accBalance;
+    let depAmount;
+    let witAmount;
 
+    //opening payload box contents
+    //if there is an action, extract account id associated with account
+    if(action.payload.accountid){accountId = state.findIndex(account => account._id === action.payload.accountid);}
 
-}
+    if(action.type === "DEPOSIT_CASH") {
+        depAmount = action.payload.amount;
+        return ( updateState[accountId].balance = parseInt(accBalance + depAmount) )
+    }
+
+    else if(action.type === "WITHDRAW_CASH") {
+        witAmount = action.payload.amount;
+        return ( updateState[accountId].balance = parseInt(accBalance - witAmount ) )
+    }
+
+    else
+        return state
+
+};
+
+export default accountsReducer;

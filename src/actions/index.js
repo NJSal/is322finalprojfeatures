@@ -1,8 +1,8 @@
-export const setAccounts = (id, name, balance) => {
+export const setAccounts = (accountid, name, balance) => {
     return {
         type: 'SET_ACCOUNTS',
         payload: {
-            id, name, balance
+            accountid, name, balance
         }
     }
 }
