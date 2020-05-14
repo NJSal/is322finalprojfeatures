@@ -8,7 +8,7 @@ import factionCard from "./factionCard";
 class accountsList extends React.Component {
 
     deleteAccount = (accountName) => {
-        this.props.removeAccount(accountName._id);
+        this.props.removeAccount(accountName.id);           //changed _id -> id
     }
 
 
