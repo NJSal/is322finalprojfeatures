@@ -64,19 +64,33 @@ class App extends React.Component {             //if made into a class component
      }
      ****/
 
-    render() {
+    wrapPage = (jsx) => {   //common wrapper: wrap page
+        const { view } = this.state;
         return (
-            <di>
+            <div className="container">     {/*want a class container*/}
+                <PageTabs currentView={view}  //*PageTaps component
+                          viewChange={this.viewChange.bind(this)}/>
+                {jsx}     {/*content of that particular page*/}
+            </div>
+        );
+    }
+
+    render() {
+        const {view} = this.state;
+
+        return (
+            <div>
                 <BrowserRouter>
                     <PageTabs/>
                     <div>
+
                         <Route path="/" exact component={Page1}/>
                         <Route path="/page2" component={Page2}/>
                         <Route path="/page3" component={Page3}/>
                         <Route path="/page/:id" component={VariablePage}/>
                     </div>
                 </BrowserRouter>
-            </di>
+            </div>
         )
     }
 }
