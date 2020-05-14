@@ -25,7 +25,11 @@ const accountsReducer = (state = DEFAULT_STATE , action) =>{
 
     //opening payload box contents
     //if there is an action, extract account id associated with account
-    if(action.payload.accountid){accountId = state.findIndex(account => account._id === action.payload.accountid);}
+    //if(action.payload.accountid){accountId = state.findIndex(account => account._id === action.payload.accountid);}
+
+
+    //if there is an action done by user and information being received
+    if(action && action.payload){accountId = state.findIndex(account => account._id === action.payload.accountid);}
 
     if(action.type === "DEPOSIT_CASH") {
         depAmount = action.payload.amount;
@@ -35,6 +39,17 @@ const accountsReducer = (state = DEFAULT_STATE , action) =>{
     else if(action.type === "WITHDRAW_CASH") {
         witAmount = action.payload.amount;
         return ( updateState[accountId].balance = parseInt(accBalance - witAmount ) )
+    }
+
+    else if(action.type === "ADD_ACCOUNT"){
+        return [
+            ...state,
+            { _id: state.length + 1, name: action.payload.name, balance: action.payload.balance }
+        ];
+    }
+    else if(action.type === "DELETE_ACCOUNT"){
+        updateState.splice(accountId, 1);
+        return updateState;
     }
 
     else
