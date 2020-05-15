@@ -38,13 +38,13 @@ class factionCard extends React.Component {
 
 
                             <button type = "button"
-                                    onClick = {() => this.props.depositCash(this.amount)}
+                                    onClick = {() => this.props.depositCash(this.props.account.id, this.props.account.amount, this.props.account.balance)} //parentheses changed from this.amount
                                     className = "btn btn-success">
                                 Deposit
                             </button>
 
                             <button type = "button"
-                                    onClick = {() => this.props.withdrawCash(this.amount)}
+                                    onClick = {() => this.props.withdrawCash(this.props.account.id, this.props.account.amount, this.props.account.balance)}
                                     className = "btn btn-danger">
                                 Withdraw
                             </button>
