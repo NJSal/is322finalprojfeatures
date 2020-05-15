@@ -29,21 +29,37 @@ const accountsReducer = (state = DEFAULT_STATE , action) =>{
 
 
     //if there is an action done by user and information being received
-    if(action && action.payload){accountId = state.findIndex(account => account._id === action.payload.accountid);}
+    if(action && action.payload){accountId = state.findIndex(account => account.id === action.payload.accountid);}
 
 
     if(action.type === "DEPOSIT_CASH") {
         depAmount = action.payload.amount;
-        accountId = action.payload.accountid;
-        accBalance = action.payload.balance;
+        //accountId = state.findIndex(account => account.id === action.payload);
+        accBalance = updateState[accountId].amount;
         return ( updateState[accountId].balance = parseInt(accBalance + depAmount) )
+
+        /*****
+         depAmount = action.payload.amount;
+         accountId = action.payload.accountid;
+         accBalance = action.payload.balance;
+         return ( updateState[accountId].balance = parseInt(accBalance + depAmount) )
+
+         *****/
+
     }
 
     else if(action.type === "WITHDRAW_CASH") {
         witAmount = action.payload.amount;
+        accountId = state.findIndex(account => account.id === action.payload);
+        //accountId = action.payload.accountid;
+        accBalance = action.payload.balance;
+        return ( updateState[accountId].balance = parseInt(accBalance - witAmount ) )
+        /*****
+        witAmount = action.payload.amount;
         accountId = action.payload.accountid;
         accBalance = action.payload.balance;
         return ( updateState[accountId].balance = parseInt(accBalance - witAmount ) )
+         ****/
     }
 
     else if(action.type === "ADD_ACCOUNT"){
@@ -52,6 +68,13 @@ const accountsReducer = (state = DEFAULT_STATE , action) =>{
             { _id: state.length + 1, name: action.payload.name, balance: 0.00 }   //balance: action.payload.balance
         ];
     }
+
+    else if(action.type === "START_BALANCE") {
+        accountId = state.findIndex(account => account.id === action.payload.accountid);
+        updateState[accountId].balance += action.payload.amount;
+        return updateState;
+    }
+
     else if(action.type === "DELETE_ACCOUNT"){
         updateState.splice(accountId, 1);
         return updateState;

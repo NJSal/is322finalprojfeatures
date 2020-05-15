@@ -13,11 +13,13 @@ import Page2 from './Page2';
 import Page3 from './Page3';
 import AccountsList from './AccountsList';
 import AddAccount from './AddAccount';
+import TransactFormatPage from './TransactFormatPage';
+import TransactList from './TransactList';
 
 class App extends React.Component {             //if made into a class component, then able to  use getData & axios calls
                                                 //but unable to use react router
     state = {
-        view: {Page1},
+        view: {AccountsList},
         allAccounts: [],
         sortedTransactions: {
             name: [],
@@ -76,7 +78,7 @@ class App extends React.Component {             //if made into a class component
                     <div>
 
                         <Route path="/" exact component={AccountsList}/>
-                        <Route path="/page2" component={Page2}/>
+                        <Route path="/page2" component={TransactList}/>
                         <Route path="/page3" component={AddAccount}/>
                         <Route path="/page/:id" component={VariablePage}/>
                     </div>
@@ -88,7 +90,7 @@ class App extends React.Component {             //if made into a class component
 
     const mapStateToProps = (state) => {                    //what gets mapped here will be returned to the properties of the component
         return {
-            errorMessage: state.errors.getTasks
+            errorMessage: state.errors.getAccounts//had get Tasks
         };
     }
 
