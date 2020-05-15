@@ -3,22 +3,17 @@ import { connect } from 'react-redux';
 
 import { removeAccount } from "../actions";
 
-import FactionCard from "./FactionCard";
+import TransactFormatPage from "./TransactFormatPage";
 
-class accountsList extends React.Component {
-
-    removeAccount = (accountName) => {
-        this.props.removeAccount(accountName.id);           //changed _id -> id
-    }
-
+class TransactList extends React.Component {
 
     render(){
-        const userAccounts = this.props.accounts.map(accountName => {
-            return <FactionCard account={accountName} key={accountName.id} deleteAccount={this.deleteAccount}/>
+        const userTransacts = this.props.transacts.map(transaction  => {
+            return <TransactFormatPage transaction={transaction} key={transaction.id}/>
         });
         return(
             <ul className = "task-list list-group">
-                { userAccounts }
+                { userTransacts }
             </ul>
         )
     }
@@ -26,7 +21,7 @@ class accountsList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        accounts: state.accounts
-    }
+        transacts : state.transacts
+    };
 }
-export default connect(mapStateToProps, {removeAccount })(accountsList);
+export default connect(mapStateToProps)(TransactList);
