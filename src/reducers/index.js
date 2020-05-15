@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 
 //import userChoiceReducer from './userChoiceReducer';
 import errorReducer from './errorReducer';
-import AccountsReducer from './AccountsReducer';
+//import accountsReducer from './accountsReducer';
+import accountsReducer from './accountsReducer';
 
 export default combineReducers( {
 
     //tasks: userChoiceReducer,
-    accounts: AccountsReducer,
-    errors: errorReducer,
+    //accounts: accountsReducer,
+    accounts: accountsReducer,
+    errors: errorReducer
 
 });
