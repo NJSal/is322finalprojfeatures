@@ -12,6 +12,7 @@ import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
 import AccountsList from './AccountsList';
+import AddAccount from './AddAccount';
 
 class App extends React.Component {             //if made into a class component, then able to  use getData & axios calls
                                                 //but unable to use react router
@@ -76,7 +77,7 @@ class App extends React.Component {             //if made into a class component
 
                         <Route path="/" exact component={AccountsList}/>
                         <Route path="/page2" component={Page2}/>
-                        <Route path="/page3" component={Page3}/>
+                        <Route path="/page3" component={AddAccount}/>
                         <Route path="/page/:id" component={VariablePage}/>
                     </div>
                 </BrowserRouter>
