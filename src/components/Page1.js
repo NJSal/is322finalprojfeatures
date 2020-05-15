@@ -1,6 +1,7 @@
 import React from 'react';
+//import { Link } from 'react-router-dom';
 
-import factionCard from "./accountsList";
+//import factionCard from "./AccountsList";
 
 /****
  need to pass this:
@@ -18,7 +19,9 @@ const Page1 = props => {
     return (
         <div className="page-one">
             <h1>All Accounts</h1>
+
         </div>
+
     )
 }
 

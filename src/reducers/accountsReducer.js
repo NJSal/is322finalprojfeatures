@@ -31,6 +31,7 @@ const accountsReducer = (state = DEFAULT_STATE , action) =>{
     //if there is an action done by user and information being received
     if(action && action.payload){accountId = state.findIndex(account => account._id === action.payload.accountid);}
 
+
     if(action.type === "DEPOSIT_CASH") {
         depAmount = action.payload.amount;
         return ( updateState[accountId].balance = parseInt(accBalance + depAmount) )

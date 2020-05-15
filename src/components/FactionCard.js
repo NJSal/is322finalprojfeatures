@@ -62,7 +62,7 @@ class factionCard extends React.Component {
                             </button>
                             *****/}
 
-                            <input type="submit" className="btn btn-success"/>
+                            {/***<input type="submit" className="btn btn-success"/>***/}
                         </form>
                     </div>
                 </div>
