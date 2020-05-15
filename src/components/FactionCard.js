@@ -24,8 +24,8 @@ class factionCard extends React.Component {
             return (
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"> {this.props.name} </h5> {/***kingdom name****/}
-                        <p class="card-text"> {this.props.balance} </p> {/****kingdom balance*****/}
+                        <h5 class="card-title"> {this.props.account.name} </h5> {/***kingdom name****/}
+                        <p class="card-text"> {this.props.account.balance} </p> {/****kingdom balance*****/}
                         <form onSubmit={this.onFormSubmit}>
                             <div className="form-group">
                                 <label> Amount </label>
@@ -38,13 +38,13 @@ class factionCard extends React.Component {
 
 
                             <button type = "button"
-                                    onClick = {() => this.depositCash(this.amount)}
+                                    onClick = {() => this.props.depositCash(this.amount)}
                                     className = "btn btn-success">
                                 Deposit
                             </button>
 
                             <button type = "button"
-                                    onClick = {() => this.withdrawCash(this.amount)}
+                                    onClick = {() => this.props.withdrawCash(this.amount)}
                                     className = "btn btn-danger">
                                 Withdraw
                             </button>

@@ -16,7 +16,7 @@ const DEFAULT_STATE = [
 ];
 
 
-const accountsReducer = (state = DEFAULT_STATE , action) =>{
+const AccountsReducer = (state = DEFAULT_STATE , action) =>{
     let updateState = [...state];                        //reducer must return a new array/object
     let accountId;
     let accBalance;
@@ -58,4 +58,4 @@ const accountsReducer = (state = DEFAULT_STATE , action) =>{
 
 };
 
-export default accountsReducer;
+export default AccountsReducer;
