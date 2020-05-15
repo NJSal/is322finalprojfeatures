@@ -34,13 +34,13 @@ const accountsReducer = (state = DEFAULT_STATE , action) =>{
 
     if(action.type === "DEPOSIT_CASH") {
         depAmount = action.payload.amount;
-        accountId = action.payload.accountid;
+        accountId = action.payload.accountid-1;
         return ( updateState[accountId].balance = parseInt(accBalance + depAmount) )
     }
 
     else if(action.type === "WITHDRAW_CASH") {
         witAmount = action.payload.amount;
-        accountId = action.payload.accountid;
+        accountId = action.payload.accountid-1;
         return ( updateState[accountId].balance = parseInt(accBalance - witAmount ) )
     }
 
