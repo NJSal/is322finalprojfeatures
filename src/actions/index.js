@@ -32,20 +32,20 @@ export const removeAccount = (accountid) => {
     }
 }
 
-export const depositCash = (accountid, amount) => {
+export const depositCash = (accountid, amount, balance) => {
     return {
         type: 'DEPOSIT_CASH',
         payload: {
-            accountid, amount
+            accountid, amount, balance
         }
     }
 }
 
-export const withdrawCash = (accountid, amount) => {
+export const withdrawCash = (accountid, amount, balance) => {
     return {
         type: 'WITHDRAW_CASH',
         payload: {
-            accountid, amount
+            accountid, amount, balance
         }
     }
 }
