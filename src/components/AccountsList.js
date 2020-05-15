@@ -14,7 +14,7 @@ class accountsList extends React.Component {
 
     render(){
         const userAccounts = this.props.accounts.map(accountName => {
-            return <FactionCard accountName={accountName} key={accountName.id} deleteAccount={this.deleteAccount}/>
+            return <FactionCard account={accountName} key={accountName.id} deleteAccount={this.deleteAccount}/>
         });
         return(
             <ul className = "task-list list-group">

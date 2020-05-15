@@ -24,8 +24,8 @@ class factionCard extends React.Component {
             return (
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"> Title </h5> {/***kingdom name****/}
-                        <p class="card-text"> wide card </p> {/****kingdom balance*****/}
+                        <h5 class="card-title"> {props.account.name} </h5> {/***kingdom name****/}
+                        <p class="card-text"> {props.account.balance} </p> {/****kingdom balance*****/}
                         <form onSubmit={this.onFormSubmit}>
                             <div className="form-group">
                                 <label> Amount </label>
